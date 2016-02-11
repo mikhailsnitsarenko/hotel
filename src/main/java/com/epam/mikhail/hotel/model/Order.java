@@ -15,6 +15,7 @@ public class Order extends BaseEntity {
     private Date departureDate;
     private int price;
     private String paymentType;
+    private User customer;
 
     public Order() {
     }

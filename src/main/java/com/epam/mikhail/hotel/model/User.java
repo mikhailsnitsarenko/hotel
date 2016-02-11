@@ -1,5 +1,6 @@
 package com.epam.mikhail.hotel.model;
 
+import java.util.List;
 import java.util.UUID;
 
 public class User extends BaseEntity {
@@ -9,8 +10,8 @@ public class User extends BaseEntity {
     private String email;
     private String password;
     private String telephoneNumber;
-
-    //Role - class or enum or something else?
+    private Role role;
+    private List<Order> orders;
 
     public User() {
     }

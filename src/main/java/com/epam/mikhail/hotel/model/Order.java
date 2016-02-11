@@ -7,10 +7,10 @@ public class Order extends BaseEntity {
 
     private String customerName;
     private String customerLastName;
-    private String customerTelephoneNumber;
+    private String customerPhoneNumber;
     private String customerEmail;
     private int numberOfPersons;
-    private String roomType;
+    private RoomType roomType;
     private Date arrivalDate;
     private Date departureDate;
     private int price;
@@ -23,4 +23,5 @@ public class Order extends BaseEntity {
     public Order(UUID uuid) {
         super(uuid);
     }
+
 }

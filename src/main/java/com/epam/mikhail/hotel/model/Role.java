@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Role extends BaseEntity {
 
     public static final Role ADMIN = new Role(UUID.randomUUID(), "admin");
-    public static final Role AUTHOR = new Role(UUID.randomUUID(), "author");
+    public static final Role REGISTEREDUSER = new Role(UUID.randomUUID(), "registered user");
     public static final Role GUEST = new Role(UUID.randomUUID(), "guest");
     private String title;
 

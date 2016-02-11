@@ -43,5 +43,6 @@ public class RoomFactory {
             return RANDOM.nextInt(2) + 1;
         if (roomType == RoomType.FAMILYROOM || roomType == RoomType.VIPSUITE)
             return RANDOM.nextInt(4) + 1;
+        return 0;
     }
 }

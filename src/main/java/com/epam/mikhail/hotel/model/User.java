@@ -10,7 +10,7 @@ public class User extends BaseEntity {
     private String lastName;
     private String email;
     private String password;
-    private String telephoneNumber;
+    private String phoneNumber;
     private Role role;
     private Date registerDate;
     private List<Order> orders;
@@ -54,12 +54,12 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public String getTelephoneNumber() {
-        return telephoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Role getRole() {

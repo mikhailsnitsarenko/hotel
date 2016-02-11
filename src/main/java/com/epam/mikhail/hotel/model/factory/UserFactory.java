@@ -15,9 +15,11 @@ public class UserFactory {
         User user = new User(UUID.randomUUID());
         String firstName = Lorem.getFirstName();
         String lastName = Lorem.getLastName();
+        String phoneNumber = Lorem.getPhone();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(firstName.toLowerCase() + "@" + lastName.toLowerCase() + ".com");
+        user.setPhoneNumber(phoneNumber);
         user.setRegisterDate(Dates.randomDateBetween(REGISTER_START, REGISTER_END));
         user.setRole(RoleFactory.createRandomRole());
         return user;

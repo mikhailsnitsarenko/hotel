@@ -9,13 +9,14 @@ import java.util.UUID;
 
 public class RoomFactory {
 
+    private static Random RANDOM = new Random();
+
     public static Room createRoom() {
-        Random random = new Random();
         Room room = new Room(UUID.randomUUID());
         room.setRoomType(RoomType.createRandomRoomType());
         room.setNumberOfRooms(checkNumberOfRooms(room.getRoomType()));
         room.setRoomSize(checkRoomSize(room.getRoomType()));
-        room.setNumberOfPersons(random.nextInt(6) + 1);
+        room.setNumberOfPersons(checkNumberOfPersons(room.getRoomType()));
         return room;
     }
 
@@ -35,5 +36,12 @@ public class RoomFactory {
         if (roomType == RoomType.APARTMENT) return 45;
         if (roomType == RoomType.VIPSUITE) return 60;
         return 0;
+    }
+
+    private static int checkNumberOfPersons(RoomType roomType) {
+        if (roomType == RoomType.STANDART || roomType == RoomType.SUPERIOR || roomType == RoomType.LUXE || roomType == RoomType.APARTMENT)
+            return RANDOM.nextInt(2) + 1;
+        if (roomType == RoomType.FAMILYROOM || roomType == RoomType.VIPSUITE)
+            return RANDOM.nextInt(4) + 1;
     }
 }

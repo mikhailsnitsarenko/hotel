@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Order extends BaseEntity {
 
-    private String customerName;
+    private String customerFirstName;
     private String customerLastName;
     private String customerPhoneNumber;
     private String customerEmail;
@@ -25,11 +25,11 @@ public class Order extends BaseEntity {
     }
 
     public String getCustomerName() {
-        return customerName;
+        return customerFirstName;
     }
 
     public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+        this.customerFirstName = customerName;
     }
 
     public String getCustomerLastName() {
@@ -122,7 +122,7 @@ public class Order extends BaseEntity {
 
         if (numberOfPersons != order.numberOfPersons) return false;
         if (price != order.price) return false;
-        if (customerName != null ? !customerName.equals(order.customerName) : order.customerName != null) return false;
+        if (customerFirstName != null ? !customerFirstName.equals(order.customerFirstName) : order.customerFirstName != null) return false;
         if (customerLastName != null ? !customerLastName.equals(order.customerLastName) : order.customerLastName != null)
             return false;
         if (customerPhoneNumber != null ? !customerPhoneNumber.equals(order.customerPhoneNumber) : order.customerPhoneNumber != null)
@@ -141,7 +141,7 @@ public class Order extends BaseEntity {
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + (customerName != null ? customerName.hashCode() : 0);
+        result = 31 * result + (customerFirstName != null ? customerFirstName.hashCode() : 0);
         result = 31 * result + (customerLastName != null ? customerLastName.hashCode() : 0);
         result = 31 * result + (customerPhoneNumber != null ? customerPhoneNumber.hashCode() : 0);
         result = 31 * result + (customerEmail != null ? customerEmail.hashCode() : 0);
@@ -158,7 +158,7 @@ public class Order extends BaseEntity {
     @Override
     public String toString() {
         return "Order{" +
-                "customerName='" + customerName + '\'' +
+                "customerName='" + customerFirstName + '\'' +
                 ", customerLastName='" + customerLastName + '\'' +
                 ", customerPhoneNumber='" + customerPhoneNumber + '\'' +
                 ", customerEmail='" + customerEmail + '\'' +

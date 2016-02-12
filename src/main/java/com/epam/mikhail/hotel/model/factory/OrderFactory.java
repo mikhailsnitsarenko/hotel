@@ -30,8 +30,6 @@ public class OrderFactory {
         order.setPrice(RANDOM.nextInt(450) + 90);
         order.setPaymentType(checkPaymentType());
         order.setCustomer(UserFactory.createUser());
-
-
         return order;
     }
 

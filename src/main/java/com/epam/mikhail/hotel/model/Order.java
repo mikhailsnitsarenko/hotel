@@ -113,49 +113,6 @@ public class Order extends BaseEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-        if (!super.equals(o)) return false;
-
-        Order order = (Order) o;
-
-        if (numberOfPersons != order.numberOfPersons) return false;
-        if (price != order.price) return false;
-        if (customerFirstName != null ? !customerFirstName.equals(order.customerFirstName) : order.customerFirstName != null) return false;
-        if (customerLastName != null ? !customerLastName.equals(order.customerLastName) : order.customerLastName != null)
-            return false;
-        if (customerPhoneNumber != null ? !customerPhoneNumber.equals(order.customerPhoneNumber) : order.customerPhoneNumber != null)
-            return false;
-        if (customerEmail != null ? !customerEmail.equals(order.customerEmail) : order.customerEmail != null)
-            return false;
-        if (roomType != null ? !roomType.equals(order.roomType) : order.roomType != null) return false;
-        if (arrivalDate != null ? !arrivalDate.equals(order.arrivalDate) : order.arrivalDate != null) return false;
-        if (departureDate != null ? !departureDate.equals(order.departureDate) : order.departureDate != null)
-            return false;
-        if (paymentType != null ? !paymentType.equals(order.paymentType) : order.paymentType != null) return false;
-        return customer != null ? customer.equals(order.customer) : order.customer == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (customerFirstName != null ? customerFirstName.hashCode() : 0);
-        result = 31 * result + (customerLastName != null ? customerLastName.hashCode() : 0);
-        result = 31 * result + (customerPhoneNumber != null ? customerPhoneNumber.hashCode() : 0);
-        result = 31 * result + (customerEmail != null ? customerEmail.hashCode() : 0);
-        result = 31 * result + numberOfPersons;
-        result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
-        result = 31 * result + (arrivalDate != null ? arrivalDate.hashCode() : 0);
-        result = 31 * result + (departureDate != null ? departureDate.hashCode() : 0);
-        result = 31 * result + price;
-        result = 31 * result + (paymentType != null ? paymentType.hashCode() : 0);
-        result = 31 * result + (customer != null ? customer.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Order{" +
                 "customerName='" + customerFirstName + '\'' +

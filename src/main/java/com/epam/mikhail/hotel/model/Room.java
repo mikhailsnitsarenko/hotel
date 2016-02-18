@@ -4,6 +4,7 @@ import java.util.UUID;
 
 public class Room extends BaseEntity {
 
+    private int roomId;
     private RoomType roomType;
     private int numberOfRooms;
     private int numberOfPersons;
@@ -12,8 +13,21 @@ public class Room extends BaseEntity {
     public Room() {
     }
 
-    public Room(UUID uuid) {
+    public Room(UUID uuid, RoomType roomType) {
         super(uuid);
+        this.roomType = roomType;
+    }
+
+    public Room(UUID uuid, int numberOfRooms, int numberOfPersons, int roomSize) {
+        super(uuid);
+        this.numberOfRooms = numberOfRooms;
+        this.numberOfPersons = numberOfPersons;
+        this.roomSize = roomSize;
+    }
+
+    public Room(UUID uuid, int roomId) {
+        super(uuid);
+        this.roomId = roomId;
     }
 
     public RoomType getRoomType() {
@@ -48,38 +62,22 @@ public class Room extends BaseEntity {
         this.roomSize = roomSize;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Room)) return false;
-        if (!super.equals(o)) return false;
-
-        Room room = (Room) o;
-
-        if (numberOfRooms != room.numberOfRooms) return false;
-        if (numberOfPersons != room.numberOfPersons) return false;
-        if (roomSize != room.roomSize) return false;
-        return roomType != null ? roomType.equals(room.roomType) : room.roomType == null;
-
+    public int getRoomId() {
+        return roomId;
     }
 
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
-        result = 31 * result + numberOfRooms;
-        result = 31 * result + numberOfPersons;
-        result = 31 * result + roomSize;
-        return result;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     @Override
     public String toString() {
         return "Room{" +
-                "roomType=" + roomType +
-                ", numberOfRooms=" + numberOfRooms +
-                ", numberOfPersons=" + numberOfPersons +
-                ", roomSize=" + roomSize +
+                "roomId=" + getRoomId() +
+                ", roomType=" + roomType.getTitle() +
+                ", numberOfRooms=" + roomType.getNumberOfRooms() +
+                ", numberOfPersons=" + roomType.getNumberOfPersons() +
+                ", roomSize=" + roomType.getRoomSize() +
                 '}';
     }
 }

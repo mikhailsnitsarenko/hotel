@@ -1,6 +1,8 @@
 package com.epam.mikhail.hotel.model;
 
-import java.util.Date;
+import org.joda.money.Money;
+
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Order extends BaseEntity {
@@ -11,9 +13,9 @@ public class Order extends BaseEntity {
     private String customerEmail;
     private int numberOfPersons;
     private RoomType roomType;
-    private Date arrivalDate;
-    private Date departureDate;
-    private int price;
+    private LocalDate arrivalDate;
+    private LocalDate departureDate;
+    private Money price;
     private String paymentType;
     private User customer;
 
@@ -72,27 +74,27 @@ public class Order extends BaseEntity {
         this.roomType = roomType;
     }
 
-    public Date getArrivalDate() {
+    public LocalDate getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(LocalDate arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public Date getDepartureDate() {
+    public LocalDate getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(LocalDate departureDate) {
         this.departureDate = departureDate;
     }
 
-    public int getPrice() {
+    public Money getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Money price) {
         this.price = price;
     }
 

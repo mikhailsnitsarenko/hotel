@@ -1,6 +1,6 @@
 package com.epam.mikhail.hotel.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,7 +12,7 @@ public class User extends BaseEntity {
     private String password;
     private String phoneNumber;
     private Role role;
-    private Date registerDate;
+    private LocalDate registerDate;
     private List<Order> orders;
 
     public User() {
@@ -70,11 +70,11 @@ public class User extends BaseEntity {
         this.role = role;
     }
 
-    public Date getRegisterDate() {
+    public LocalDate getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(Date registerDate) {
+    public void setRegisterDate(LocalDate registerDate) {
         this.registerDate = registerDate;
     }
 

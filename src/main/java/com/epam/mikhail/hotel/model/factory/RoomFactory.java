@@ -14,6 +14,8 @@ public class RoomFactory {
     public static Room createRoom() {
         Room room = new Room(UUID.randomUUID(), random.nextInt(100) + 1);
         room.setRoomType(RoomType.createRandomRoomType());
+        //room.setNumberOfRooms(room.getRoomType().getNumberOfRooms());
+        room.setNumberOfPersons(room.getRoomType().getNumberOfPersons());
         return room;
     }
 }

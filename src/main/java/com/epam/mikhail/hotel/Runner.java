@@ -2,15 +2,13 @@ package com.epam.mikhail.hotel;
 
 
 import com.epam.mikhail.hotel.model.Room;
-import com.epam.mikhail.hotel.model.compare.SortedRoomsById;
 import com.epam.mikhail.hotel.model.factory.RoomFactory;
+import com.epam.mikhail.hotel.model.service.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Runner {
-
 
     public static void main(String[] args) {
 
@@ -20,9 +18,13 @@ public class Runner {
             rooms.add(room);
         }
 
-        rooms.forEach(System.out::println);
-        Collections.sort(rooms, new SortedRoomsById());
-        rooms.forEach(System.out::println);
+        Service service = new Service();
+
+        /*for (Room room : rooms) LOGGER.info(String.valueOf(room));
+        for (Room room : service.sort(rooms, Room.NUMBER_OF_PERSONS_ORDER)) LOGGER.info(String.valueOf(room));*/
+
+        service.showRoomList(service.sort(rooms, Room.NUMBER_OF_PERSONS_ORDER));
+
     }
 
 }

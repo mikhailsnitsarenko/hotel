@@ -1,5 +1,7 @@
 package com.epam.mikhail.hotel.model;
 
+
+import java.util.Comparator;
 import java.util.UUID;
 
 public class Room extends BaseEntity {
@@ -9,6 +11,9 @@ public class Room extends BaseEntity {
     private int numberOfRooms;
     private int numberOfPersons;
     private int roomSize;
+
+    public static final Comparator<Room> ROOM_ID_ORDER = Comparator.comparing(Room::getRoomId);
+    public static final Comparator<Room> NUMBER_OF_PERSONS_ORDER = Comparator.comparing(Room::getNumberOfPersons);
 
     public Room() {
     }
@@ -76,8 +81,10 @@ public class Room extends BaseEntity {
                 "roomId=" + getRoomId() +
                 ", roomType=" + roomType.getTitle() +
                 ", numberOfRooms=" + roomType.getNumberOfRooms() +
-                ", numberOfPersons=" + roomType.getNumberOfPersons() +
+                ", numberOfPersons=" + getNumberOfPersons() +
                 ", roomSize=" + roomType.getRoomSize() +
                 '}';
     }
+
+
 }

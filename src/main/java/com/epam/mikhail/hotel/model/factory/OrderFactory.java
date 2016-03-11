@@ -3,15 +3,15 @@ package com.epam.mikhail.hotel.model.factory;
 import com.epam.mikhail.hotel.model.Order;
 import com.epam.mikhail.hotel.model.RoomType;
 import com.thedeanda.lorem.Lorem;
+import org.joda.money.CurrencyUnit;
+import org.joda.money.Money;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Random;
 import java.util.UUID;
 
 public class OrderFactory {
 
-    private static final Date THIS_DATE = new Date(116, 0, 1);
-    private static final Date FUTURE_DATE = new Date(117, 0, 1);
     private static Random RANDOM = new Random();
 
     public static Order createOrder () {
@@ -25,9 +25,9 @@ public class OrderFactory {
         order.setCustomerEmail(firstName.toLowerCase() + "@" + lastName.toLowerCase() + ".com");
         order.setNumberOfPersons(RANDOM.nextInt(4)+1);
         order.setRoomType(RoomType.createRandomRoomType());
-        order.setArrivalDate(Dates.randomDateBetween(THIS_DATE, FUTURE_DATE));
-        order.setDepartureDate(Dates.randomDateBetween(order.getArrivalDate(), FUTURE_DATE));
-        order.setPrice(RANDOM.nextInt(450) + 90);
+        order.setArrivalDate(LocalDate.now());
+        order.setDepartureDate(LocalDate.MAX);
+        order.setPrice(Money.of(CurrencyUnit.of("KZT"), ((int) (Math.random() * 10) + 1) * 100));
         order.setPaymentType(checkPaymentType());
         order.setCustomer(UserFactory.createUser());
         return order;

@@ -41,5 +41,6 @@ public class RoomType extends Room {
         this.title = title;
     }
 
+
 }
 
